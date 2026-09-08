@@ -5,6 +5,6 @@ const result = (function countFactorial(n: bigint): bigint | void {
     return;
   }
   if (n <= 1n) return 1n;
-  return (n = countFactorial(n - 1n) ?? 1n);
+  return n * (n = countFactorial(n - 1n) ?? 1n);
 })(1000n);
 console.log(result);
