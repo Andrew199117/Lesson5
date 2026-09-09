@@ -4,14 +4,25 @@
 
 const now: Date = new Date();
 
-const day = now.getDate().toString().padStart(2, "0");
-const month = (now.getMonth() + 1).toString().padStart(2, "0");
-const year = now.getFullYear();
+function getDate(now: Date): string {
+  const day = getCode(now.getDate());
+  const month = getCode(now.getMonth() + 1);
+  const year = now.getFullYear();
 
-const hours = now.getHours().toString().padStart(2, "0");
-const minutes = now.getMinutes().toString().padStart(2, "0");
-const seconds = now.getSeconds().toString().padStart(2, "0");
+  const hours = getCode(now.getHours());
+  const minutes = getCode(now.getMinutes());
+  const seconds = getCode(now.getSeconds());
 
-const formattedDate = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+  return `${year}/${month}/${day}T${hours}:${minutes}:${seconds}`;
+}
 
-console.log(formattedDate);
+console.log(getDate(now));
+
+function getCode(num: number): string {
+  return num.toString().padStart(2, "0");
+}
+
+const validateDate = (date: string): boolean => {
+  return date === getDate(now);
+};
+console.log(validateDate("354545454"));
