@@ -15,14 +15,7 @@ function getDate(now: Date): string {
 
   return `${year}/${month}/${day}T${hours}:${minutes}:${seconds}`;
 }
-
-console.log(getDate(now));
-
 function getCode(num: number): string {
   return num.toString().padStart(2, "0");
 }
-
-const validateDate = (date: string): boolean => {
-  return date === getDate(now);
-};
-console.log(validateDate("354545454"));
+console.log(getDate(now));
